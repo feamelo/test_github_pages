@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segment Selector</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: 0;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Dropdown to select the segment -->
+<label for="segmentSelect">Select Segment:</label>
+<select id="segmentSelect" onchange="loadContent()">
+    <option value="overall">Overall</option>
+    <option value="segment_1">Segment 1</option>
+    <option value="segment_2">Segment 2</option>
+</select>
+
+<!-- Containers to display the content -->
+<iframe id="fig1"></iframe>
+<iframe id="fig3" style="width: 10%"></iframe>
+<iframe id="fig2" style="width: 90%"></iframe>
+<iframe id="fig4"></iframe>
+<iframe id="fig5"></iframe>
+<iframe id="fig_calib" style="width: 33%"></iframe>
+<iframe id="fig_fixed" style="width: 33%"></iframe>
+<iframe id="fig_0rate" style="width: 33%"></iframe>
+
+<script>
+    function loadContent() {
+        // Get the selected segment
+        var selectedSegment = document.getElementById("segmentSelect").value;
+        document.getElementById("fig1").src = "segments/" + selectedSegment + "/fig1.html";
+        document.getElementById("fig2").src = "segments/" + selectedSegment + "/fig2.html";
+        document.getElementById("fig3").src = "segments/" + selectedSegment + "/fig3.html";
+        document.getElementById("fig4").src = "segments/" + selectedSegment + "/fig4.html";
+        document.getElementById("fig5").src = "segments/" + selectedSegment + "/fig5.html";
+        document.getElementById("fig_calib").src = "segments/" + selectedSegment + "/fig_calib.html";
+        document.getElementById("fig_fixed").src = "segments/" + selectedSegment + "/fig_fixed.html";
+        document.getElementById("fig_0rate").src = "segments/" + selectedSegment + "/fig_0rate.html";
+    }
+
+    // Load default content on page load
+    loadContent();
+</script>
+
+</body>
+</html>
